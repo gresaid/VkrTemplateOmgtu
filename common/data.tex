@@ -1,0 +1,79 @@
+%%% Основные сведения для магистерской работы %%%
+\newcommand{\thesisAuthorLastName}{\fixme{Фамилия}}
+\newcommand{\thesisAuthorOtherNames}{\fixme{Имя Отчество}}
+\newcommand{\thesisAuthorInitials}{\fixme{И.\,О.}}
+\newcommand{\thesisAuthor}
+{%
+    \texorpdfstring{%
+        \thesisAuthorLastName~\thesisAuthorOtherNames%
+    }{%
+        \thesisAuthorLastName, \thesisAuthorOtherNames%
+    }%
+}
+\newcommand{\thesisAuthorShort}{\thesisAuthorInitials~\thesisAuthorLastName}
+
+\newcommand{\thesisTitle}{\fixme{Название магистерской диссертации}}
+\newcommand{\thesisType}{\fixme{Магистерская диссертация}}
+\newcommand{\thesisProgramCode}{\fixme{XX.04.XX}}
+\newcommand{\thesisProgramTitle}{\fixme{Название направления подготовки}}
+\newcommand{\thesisProgramProfile}{\fixme{Название магистерской программы}}
+\newcommand{\thesisStudentGroup}{\fixme{М-00-00}}
+\newcommand{\thesisCity}{\fixme{Город}}
+\newcommand{\thesisYear}{\the\year}
+\newcommand{\thesisOrganization}
+{\fixme{Полное название образовательной организации}}
+\newcommand{\thesisInstitute}
+{\fixme{Институт / факультет}}
+\newcommand{\thesisDepartment}
+{\fixme{Кафедра}}
+
+\newcommand{\supervisorFio}{\fixme{Фамилия Имя Отчество}}
+\newcommand{\supervisorFioShort}{\fixme{И.\,О.~Фамилия}}
+\newcommand{\supervisorPosition}
+{\fixme{должность, ученая степень, ученое звание}}
+\newcommand{\supervisorRegalia}{\supervisorPosition}
+\newcommand{\supervisorRegaliaShort}{\supervisorPosition}
+
+\newcommand{\abstractKeywords}
+{\fixme{КЛЮЧЕВЫЕ СЛОВА, ОПИСЫВАЮЩИЕ РАБОТУ}}
+\newcommand{\researchObject}
+{\fixme{объект исследования}}
+\newcommand{\researchSubject}
+{\fixme{предмет исследования}}
+\newcommand{\researchPurpose}
+{\fixme{цель работы}}
+\newcommand{\workDoneDescription}
+{\fixme{что было выполнено в ходе работы}}
+\newcommand{\workResultDescription}
+{\fixme{какой результат был получен}}
+
+%%% Совместимость с исходным шаблоном %%%
+\newcommand{\thesisSpecialtyNumber}{\thesisProgramCode}
+\newcommand{\thesisSpecialtyTitle}{\thesisProgramTitle}
+\newcommand{\thesisDegree}{\thesisType}
+\newcommand{\thesisDegreeShort}{\thesisType}
+\newcommand{\thesisOrganizationShort}{\thesisOrganization}
+\newcommand{\thesisInOrganization}{\thesisOrganization}
+
+\newcommand{\opponentOneFio}{\fixme{Фамилия Имя Отчество}}
+\newcommand{\opponentOneRegalia}{\fixme{ученая степень, ученое звание}}
+\newcommand{\opponentOneJobPlace}{\fixme{Место работы}}
+\newcommand{\opponentOneJobPost}{\fixme{Должность}}
+
+\newcommand{\opponentTwoFio}{\fixme{Фамилия Имя Отчество}}
+\newcommand{\opponentTwoRegalia}{\fixme{ученая степень, ученое звание}}
+\newcommand{\opponentTwoJobPlace}{\fixme{Место работы}}
+\newcommand{\opponentTwoJobPost}{\fixme{Должность}}
+
+\newcommand{\leadingOrganizationTitle}{\fixme{Название организации}}
+\newcommand{\defenseDate}{\fixme{DD mmmmmmmm YYYY~г.}}
+\newcommand{\defenseCouncilNumber}{\fixme{Д\,123.456.78}}
+\newcommand{\defenseCouncilTitle}{\fixme{Название учреждения}}
+\newcommand{\defenseCouncilAddress}{\fixme{Адрес}}
+\newcommand{\defenseCouncilPhone}{\fixme{+7~(0000)~00-00-00}}
+\newcommand{\defenseSecretaryFio}{\fixme{Фамилия Имя Отчество}}
+\newcommand{\defenseSecretaryRegalia}{\fixme{уч. степень}}
+\newcommand{\synopsisLibrary}{\fixme{Название библиотеки}}
+\newcommand{\synopsisDate}{\fixme{DD mmmmmmmm}\the\year~года}
+
+\providecommand{\keywords}{\abstractKeywords}

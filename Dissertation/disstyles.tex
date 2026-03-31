@@ -1,0 +1,154 @@
+%%% Изображения %%%
+\graphicspath{{images/}{Dissertation/images/}}
+
+%%% Интервалы %%%
+\OnehalfSpacing*
+
+%%% Макет страницы %%%
+\geometry{a4paper, top=2cm, bottom=2cm, left=3cm, right=1.5cm, nofoot, nomarginpar}
+\setlength{\topskip}{0pt}
+\setlength{\footskip}{12.3pt}
+
+%%% Выравнивание и переносы %%%
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\vfuzz \hfuzz
+\clubpenalty=10000
+\widowpenalty=10000
+\brokenpenalty=4991
+
+%%% Блок управления параметрами для выравнивания заголовков в тексте %%%
+\newlength{\otstuplen}
+\setlength{\otstuplen}{\theotstup\parindent}
+\ifnumequal{\value{headingalign}}{0}{%
+    \newcommand{\hdngalign}{\centering}
+    \newcommand{\hdngaligni}{}
+    \setlength{\otstuplen}{0pt}
+}{%
+    \newcommand{\hdngalign}{}
+    \newcommand{\hdngaligni}{\hspace{\otstuplen}}
+}
+
+%%% Оглавление %%%
+\renewcommand{\cftchapterdotsep}{\cftdotsep}
+\setrmarg{2.55em plus1fil}
+\renewcommand{\cftchapterpagefont}{\normalfont}
+\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
+\renewcommand\cftchapteraftersnum{\space}
+\renewcommand\cftsectionaftersnum{\space}
+\renewcommand\cftsubsectionaftersnum{\space}
+\renewcommand\cftsubsubsectionaftersnum{\space}
+\renewcommand*{\cftappendixname}{\appendixname\space}
+\AfterEndPreamble{
+    \setsecnumformat{\csname the#1\endcsname\space}
+}
+
+%%% Колонтитулы %%%
+\makeevenhead{plain}{}{}{}
+\makeoddhead{plain}{}{}{}
+\makeevenfoot{plain}{}{\rmfamily\thepage}{}
+\makeoddfoot{plain}{}{\rmfamily\thepage}{}
+\pagestyle{plain}
+
+%%% Добавить "Стр." над номерами страниц в оглавлении при необходимости %%%
+\newif\ifendTOC
+\newcommand*{\tocheader}{
+\ifnumequal{\value{pgnum}}{1}{%
+    \ifendTOC\else\hbox to \linewidth%
+      {\noindent{}~\hfill{Стр.}}\par%
+      \ifnumless{\value{page}}{3}{}{%
+        \vspace{0.5\onelineskip}
+      }
+      \afterpage{\tocheader}
+    \fi%
+}{}%
+}%
+
+%%% Оформление заголовков %%%
+\newcommand{\basegostsectionfont}{\fontsize{14pt}{21pt}\selectfont\bfseries}
+\newcommand{\basestructuralfont}{\normalfont\fontsize{14pt}{21pt}\selectfont}
+\newif\ifmasterunnumberedchapter
+
+\makechapterstyle{masterwork}{%
+    \chapterstyle{default}
+    \setlength{\beforechapskip}{0pt}
+    \setlength{\midchapskip}{0pt}
+    \setlength{\afterchapskip}{\theintvl\onelineskip}
+    \renewcommand*{\chapterheadstart}{}
+    \renewcommand*{\chapnamefont}{\basestructuralfont}
+    \renewcommand*{\chapnumfont}{\basegostsectionfont}
+    \renewcommand*{\chaptitlefont}{\basegostsectionfont}
+    \renewcommand*{\printchaptername}{}
+    \renewcommand*{\afterchapternum}{\space}
+    \renewcommand*{\printchapternum}{%
+        \global\masterunnumberedchapterfalse
+        \noindent\hspace{\otstuplen}\chapnumfont \thechapter
+    }
+    \renewcommand*{\printchapternonum}{%
+        \global\masterunnumberedchaptertrue
+    }
+    \renewcommand*{\printchaptertitle}[1]{%
+        \ifmasterunnumberedchapter
+            \centering\basestructuralfont\MakeUppercase{##1}%
+        \else
+            \chaptitlefont ##1%
+        \fi
+    }
+}
+
+\makeatletter
+\makechapterstyle{masterappendix}{%
+    \chapterstyle{default}
+    \setlength{\beforechapskip}{0pt}
+    \setlength{\midchapskip}{0pt}
+    \setlength{\afterchapskip}{\theintvl\onelineskip}
+    \renewcommand*{\chapterheadstart}{}
+    \renewcommand*{\chapnamefont}{\basestructuralfont}
+    \renewcommand*{\chapnumfont}{\basestructuralfont}
+    \renewcommand*{\chaptitlefont}{\basestructuralfont}
+    \renewcommand*{\printchaptername}{\centering\chapnamefont\MakeUppercase{\@chapapp}}
+    \renewcommand*{\printchapternum}{\chapnumfont\space\thechapter}
+    \renewcommand*{\afterchapternum}{\par\nobreak\vskip \theintvl\onelineskip}
+    \renewcommand*{\printchapternonum}{\centering\basestructuralfont}
+    \renewcommand*{\printchaptertitle}[1]{\centering\chaptitlefont ##1}
+}
+\makeatother
+
+\chapterstyle{masterwork}
+
+\setsecheadstyle{\basegostsectionfont\hdngalign}
+\setsecindent{\otstuplen}
+\setsubsecheadstyle{\basegostsectionfont\hdngalign}
+\setsubsecindent{\otstuplen}
+\setsubsubsecheadstyle{\normalfont\fontsize{14pt}{21pt}\selectfont\hdngalign}
+\setsubsubsecindent{\otstuplen}
+\sethangfrom{\noindent #1}
+
+%%% Интервалы между заголовками
+\setbeforesecskip{\theintvl\onelineskip}
+\setaftersecskip{\theintvl\onelineskip}
+\setbeforesubsecskip{\theintvl\onelineskip}
+\setaftersubsecskip{\theintvl\onelineskip}
+\setbeforesubsubsecskip{\theintvl\onelineskip}
+\setaftersubsubsecskip{\theintvl\onelineskip}
+
+%%% Счётчики %%%
+\ifnumequal{\value{contnumeq}}{1}{%
+    \counterwithout{equation}{chapter}
+}{}
+\ifnumequal{\value{contnumfig}}{1}{%
+    \counterwithout{figure}{chapter}
+}{}
+\ifnumequal{\value{contnumtab}}{1}{%
+    \counterwithout{table}{chapter}
+}{}
+
+\AfterEndPreamble{
+    \regtotcounter{totalcount@figure}
+    \regtotcounter{totalcount@table}
+    \regtotcounter{TotPages}
+    \newtotcounter{totalappendix}
+    \newtotcounter{totalchapter}
+}
